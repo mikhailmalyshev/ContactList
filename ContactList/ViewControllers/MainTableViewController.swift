@@ -9,7 +9,9 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-
+    
+    // MARK: - Public Properties
+    
     var contacts = Person.getPersonList()
 
     // MARK: - Table view data source
@@ -18,8 +20,8 @@ class MainTableViewController: UITableViewController {
         return contacts.count
     }
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "NameSurname", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NameSurname", for: indexPath)
         let fullName = contacts[indexPath.row]
         cell.textLabel?.text = fullName.nameWithSurname
         return cell
