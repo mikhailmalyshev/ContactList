@@ -18,51 +18,30 @@ struct Person {
 }
 
 extension Person {
-    static func getPersonList() -> [Person] {
+    static func getContactList() -> [Person] {
+        
         var persons: [Person] = []
-        for _ in 1...10 {
-            persons.append(Person(name: getRandomName(),
-                                  surname: getRandomSurname(),
-                                  phoneNumber: getRandomPhoneNumber(),
-                                  email: getRandomEmail()))
+        
+        let names = DataManager.shared.names.shuffled()
+        let surnames = DataManager.shared.surnames.shuffled()
+        let emails = DataManager.shared.emails.shuffled()
+        let phones = DataManager.shared.phoneNumbers.shuffled()
+        
+        for index in 0..<names.count {
+            let person = Person(name: names[index],
+                                surname: surnames[index],
+                                phoneNumber: phones[index],
+                                email: emails[index])
+            
+            persons.append(person)
         }
+        
         return persons
     }
-    
-    static func getRandomName() -> String {
-        if let randomName = names.randomElement() {
-            names.removeAll() { $0 == randomName }
-            return randomName
-        } else {
-            return "Name"
-        }
-    }
-    
-    static func getRandomSurname() -> String {
-        if let randomSurname = surnames.randomElement() {
-            surnames.removeAll() { $0 == randomSurname }
-            return randomSurname
-        } else {
-            return "Surname"
-        }
-    }
-    
-    static func getRandomPhoneNumber() -> String {
-        if let randomPhoneNumber = phoneNumbers.randomElement() {
-            phoneNumbers.removeAll() { $0 == randomPhoneNumber }
-            return randomPhoneNumber
-        } else {
-            return "Phone Number"
-        }
-    }
-    
-    static func getRandomEmail() -> String {
-        if let randomEmail = emails.randomElement() {
-            emails.removeAll() { $0 == randomEmail }
-            return randomEmail
-        } else {
-            return "Email"
-        }
-    }
+}
+
+enum Contacts: String {
+    case phone = "phone"
+    case email = "tray"
 }
 

@@ -12,7 +12,7 @@ class MainTableViewController: UITableViewController {
     
     // MARK: - Public Properties
     
-    var contacts = Person.getPersonList()
+    var contacts: [Person]!
 
     // MARK: - Table view data source
     

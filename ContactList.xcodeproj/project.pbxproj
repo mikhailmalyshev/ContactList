@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9720198624289EBF00953D02 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9720198524289EBF00953D02 /* TabBarViewController.swift */; };
 		97C0FCDC2420C37400210E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0FCDB2420C37400210E4C /* AppDelegate.swift */; };
 		97C0FCDE2420C37400210E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0FCDD2420C37400210E4C /* SceneDelegate.swift */; };
 		97C0FCE32420C37400210E4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C0FCE12420C37400210E4C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9720198524289EBF00953D02 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		97C0FCD82420C37400210E4C /* ContactList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C0FCDB2420C37400210E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C0FCDD2420C37400210E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		97C0FCF9242134C900210E4C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9720198524289EBF00953D02 /* TabBarViewController.swift */,
 				97C0FCF32420D81D00210E4C /* MainTableViewController.swift */,
 				97C0FCF52420D89700210E4C /* DetailViewController.swift */,
 				97C0FCF72420D8D000210E4C /* SectionTableViewController.swift */,
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9720198624289EBF00953D02 /* TabBarViewController.swift in Sources */,
 				97C0FCF22420D03F00210E4C /* DataManager.swift in Sources */,
 				97C0FCDC2420C37400210E4C /* AppDelegate.swift in Sources */,
 				97C0FCF02420CCD900210E4C /* Person.swift in Sources */,

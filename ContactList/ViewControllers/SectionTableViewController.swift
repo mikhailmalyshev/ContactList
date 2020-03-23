@@ -12,17 +12,25 @@ class SectionTableViewController: UITableViewController {
     
     //MARK: - Private Properties
     
-    private var contacts: [Person] = []
-    
-    //MARK: - Life Cycles Methods
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let firstTabController = tabBarController?.viewControllers?.first as! MainTableViewController
-        self.contacts = firstTabController.contacts
-    }
+    var contacts: [Person]!
 
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView()
+        
+        let label = UILabel(frame: CGRect(x: 20, y: 3, width: 300, height: 20))
+        label.text = contacts[section].nameWithSurname
+        label.textColor = .white
+        
+        headerView.addSubview(label)
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.backgroundColor = .gray
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return contacts.count
@@ -33,19 +41,17 @@ class SectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contact = contacts[indexPath.section]
-        var information = ""
-        switch indexPath.row {
-        case 0:
-            information = "Phone Number: \(contact.phoneNumber)"
-        case 1:
-            information = "E-mail: \(contact.email)"
-        default:
-            information = "None"
-        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = information
+        let contact = contacts[indexPath.section]
+        switch indexPath.row {
+        case 0:
+            cell.textLabel?.text = contact.phoneNumber
+            cell.imageView?.image = UIImage(systemName: Contacts.phone.rawValue)
+        default:
+            cell.textLabel?.text = contact.email
+            cell.imageView?.image = UIImage(systemName: Contacts.email.rawValue)
+        }
         
         return cell
     }
